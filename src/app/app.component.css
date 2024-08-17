@@ -1,0 +1,41 @@
+section
+{
+    display : grid;
+}
+.container
+{
+    width : 80%;
+    height : 100%;
+    display: grid;
+    border:  1px solid black;
+    justify-self: center;
+}
+.calculator-display
+{
+    border-top:  3px solid grey;
+    border-bottom: 3px solid grey;
+    border-radius: 5%;
+}
+
+#heading
+{
+    text-align: center;
+    cursor: default;
+}
+
+#result
+{
+    text-align: right;
+}
+
+span button
+{
+    width: 25%;
+    padding : 2%;
+    margin : 3%;
+}
+
+.btn
+{
+    border : 1px solid black; 
+}

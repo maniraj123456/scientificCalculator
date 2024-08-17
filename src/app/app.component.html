@@ -1,0 +1,75 @@
+<section>
+  <div class="container">
+    <div class="row" id="heading">
+      <h1>Scientific Calculator</h1>
+    </div>
+    <div class="row calculator-display">
+      <!-- Initial value -->
+      <h1 id="result">{{ defaultValue }}</h1>
+    </div>
+    <!-- first row -->
+    <div class="row">
+      <div class="col-6">
+        <span><button class="btn btn-light" (click)="numberClick('(')">(</button></span>
+        <span><button class="btn btn-light" (click)="numberClick(')')">)</button></span>
+        <span><button class="btn btn-light">&#9003;</button></span>
+      </div>
+      <div class="col-6">
+        <span><button class="btn btn-light" (click)="numberClick(7)">7</button></span>
+        <span><button class="btn btn-light" (click)="numberClick(8)">8</button></span>
+        <span><button class="btn btn-light" (click)="numberClick(9)">9</button></span>
+      </div>
+    </div>
+    <!-- second row -->
+    <div class="row">
+      <div class="col-6">
+        <span><button class="btn btn-light" (click)="numberClick('+')">+</button></span>
+        <span><button class="btn btn-light" (click)="numberClick('-')">-</button></span>
+        <span><button class="btn btn-light" (click)="numberClick('X')">X</button></span>
+      </div>
+      <div class="col-6">
+        <span><button class="btn btn-light" (click)="numberClick(4)">4</button></span>
+        <span><button class="btn btn-light" (click)="numberClick(5)">5</button></span>
+        <span><button class="btn btn-light" (click)="numberClick(6)">6</button></span>
+      </div>
+    </div>
+    <!-- third row -->
+    <div class="row">
+      <div class="col-6">
+        <span><button class="btn btn-light" (click)="numberClick('/')">/</button></span>
+        <span><button class="btn btn-light" (click)="numberClick('%')">%</button></span>
+        <span><button class="btn btn-light" >^</button></span>
+      </div>
+      <div class="col-6">
+        <span><button class="btn btn-light" (click)="numberClick(1)">1</button></span>
+        <span><button class="btn btn-light" (click)="numberClick(2)">2</button></span>
+        <span><button class="btn btn-light" (click)="numberClick(3)">3</button></span>
+      </div>
+    </div>
+    <!-- fourth row -->
+    <div class="row">
+      <div class="col-6">
+        <span><button class="btn btn-light">mean()</button></span>
+        <span><button class="btn btn-light">mode()</button></span>
+        <span><button class="btn btn-light">SD()</button></span>
+      </div>
+      <div class="col-6">
+        <span><button class="btn btn-light" (click)="numberClick('.')">.</button></span>
+        <span><button class="btn btn-light" (click)="numberClick(0)">0</button></span>
+        <span><button class="btn btn-primary" (click)="submit()">=</button></span>
+      </div>
+    </div>
+    <!-- fifth row -->
+    <div class="row">
+      <div class="col-6">
+        <span><button class="btn btn-light">sine()</button></span>
+        <span><button class="btn btn-light">cos()</button></span>
+        <span><button class="btn btn-light">tan()</button></span>
+      </div>
+      <div class="col-6">
+      </div>
+    </div>
+  </div>
+</section>
+
+<router-outlet></router-outlet>
