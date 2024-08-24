@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ export class AppComponent {
   symbols: Array<String> = ['sine(','cos(','tan(',]
   
   defaultValue: Number = 0;
+
+  operationsList: Array<any> = [];
 
   constructor(private apiService: ApiService) { } 
 
@@ -40,26 +43,40 @@ export class AppComponent {
     (!(trigonometric === "sin(" || trigonometric === "cos(" || trigonometric === "tan(") && resultVal != undefined && resultVal.length > 0 && resultVal !== "0" && result ) ? result.innerHTML  = resultVal.substring(0, resultVal.length - 1) : null;
   }
 
+  openHistory()
+  {
+    if(this.operationsList.length === 0)
+      this.getData();
+    else
+      this.operationsList = []; 
+  }
+
   private postData(expression:string) {
-    debugger;
+    /* replacing X with '*' */
+    expression = expression.replaceAll('X','*');
+    /* calling api */
     const payload = { 'expression' : expression };
     this.apiService.postData(payload).subscribe(
       (response) => {
-        console.log('Data posted successfully', response);
+        const result = document.getElementById('result');
+        (result != null)? result.innerText = response : console.log(response);
       },
       (error) => {
         console.error('Error posting data', error);
       }
-    );  
+    );
+  }
 
+  private getData()
+  {
     this.apiService.getData().subscribe(
-      (response) => {
+      (response)=>{
+        this.operationsList = response;
         console.log(response);
       },
-      (error) => {
+      (error)=>{
         console.log(error);
-
       }
-    )
+    );
   }
 }

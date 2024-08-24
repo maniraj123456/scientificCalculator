@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class ApiService {
 
-  private apiUrl = 'https://localhost:5141'; 
+  private apiUrl = 'http://localhost:5141'; 
 
   constructor(private http: HttpClient) { }
 
@@ -19,9 +19,8 @@ export class ApiService {
 
   // Example POST request
   postData(body: any): Observable<any> {
-    let queryParam = new HttpParams();
-    queryParam = queryParam.append("expression", body.expression);
-    return  this.http.post<any>(`${this.apiUrl}/api/Values`,queryParam);
+    const queryparams = {'expression':body.expression};
+    return  this.http.post<any>(`${this.apiUrl}/api/Values`,queryparams);
   }
 }
 
