@@ -53,7 +53,7 @@ export class AppComponent {
 
   private postData(expression:string) {
     /* replacing X with '*' */
-    expression = expression.replaceAll('X','*');
+    expression = expression.replaceAll('x','*');
     /* calling api */
     const payload = { 'expression' : expression };
     this.apiService.postData(payload).subscribe(
